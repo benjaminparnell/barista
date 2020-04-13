@@ -1,5 +1,5 @@
 import * as React from "react";
-import RecipeService from "../RecipeService";
+import RecipeService from "../../RecipeService";
 import Countdown from "../Countdown";
 const styles = require("./index.css");
 

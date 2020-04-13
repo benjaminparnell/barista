@@ -1,4 +1,4 @@
-export enum Step {
+export const enum Step {
   SelectBrewType,
   SelectRecipe,
   Brew,

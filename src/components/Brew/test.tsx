@@ -1,6 +1,6 @@
 import * as React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import { recipes } from "../RecipeService";
+import { recipes } from "../../RecipeService";
 import Brew from ".";
 
 describe("Brew", () => {

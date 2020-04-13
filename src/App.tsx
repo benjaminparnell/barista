@@ -1,7 +1,7 @@
 import * as React from "react";
-import TypeSelector from "./TypeSelector";
-import RecipeSelector from "./RecipeSelector";
-import Brew from "./Brew";
+import TypeSelector from "./components/TypeSelector";
+import RecipeSelector from "./components/RecipeSelector";
+import Brew from "./components/Brew";
 import { Step, BrewType } from "./types";
 
 const App = () => {

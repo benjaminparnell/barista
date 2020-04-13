@@ -1,5 +1,5 @@
 import * as React from "react";
-import useInterval from "../useInterval";
+import useInterval from "../../useInterval";
 
 interface Props {
   seconds: number;

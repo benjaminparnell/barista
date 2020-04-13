@@ -1,6 +1,6 @@
 import * as React from "react";
-import { BrewType } from "../types";
-import RecipeService from "../RecipeService";
+import { BrewType } from "../../types";
+import RecipeService from "../../RecipeService";
 const styles = require("./index.css");
 
 interface Props {
