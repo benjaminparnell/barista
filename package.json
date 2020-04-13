@@ -12,6 +12,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-push": "npm test"
+    }
+  },
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
@@ -24,6 +29,7 @@
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
     "autoprefixer": "^9.7.6",
+    "husky": "^4.2.5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^25.3.0",
     "parcel-bundler": "^1.12.4",
