@@ -1,5 +1,6 @@
 import * as React from "react";
 import RecipeService from "../RecipeService";
+import Countdown from "../Countdown";
 const styles = require("./index.css");
 
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
 const Brew: React.SFC<Props> = ({ recipeId }) => {
   const [started, setStarted] = React.useState(false);
   const [step, setStep] = React.useState(0);
+  const goToNextStep = () => setStep(step + 1);
   const recipeService = new RecipeService();
   const recipe = recipeService.getById(recipeId);
 
@@ -39,8 +41,17 @@ const Brew: React.SFC<Props> = ({ recipeId }) => {
   }
 
   return (
-    <div className={styles.container} onClick={() => setStep(step + 1)}>
-      <p className={styles.step}>{currentStep.text}</p>
+    <div className={styles.container} onClick={goToNextStep}>
+      <div className={styles.step}>
+        <p>{currentStep.text}</p>
+        {currentStep.seconds && (
+          <Countdown
+            key={step}
+            seconds={currentStep.seconds}
+            done={goToNextStep}
+          />
+        )}
+      </div>
     </div>
   );
 };
