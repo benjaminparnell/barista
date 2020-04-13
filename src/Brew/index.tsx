@@ -1,5 +1,6 @@
 import * as React from "react";
 import RecipeService from "../RecipeService";
+const styles = require("./index.css");
 
 interface Props {
   recipeId: string;
@@ -12,20 +13,36 @@ const Brew: React.SFC<Props> = ({ recipeId }) => {
   const recipe = recipeService.getById(recipeId);
 
   if (!recipe) {
-    return <p>Recipe not found</p>;
+    return (
+      <div className={styles.container}>
+        <p className={styles.step}>Recipe not found</p>
+      </div>
+    );
   }
 
   if (!started) {
-    return <div onClick={() => setStarted(true)}>Start</div>;
+    return (
+      <div className={styles.container} onClick={() => setStarted(true)}>
+        <p className={styles.step}>Start</p>
+      </div>
+    );
   }
 
   const currentStep = recipe.steps[step];
 
   if (!currentStep && step === recipe.steps.length) {
-    return <div>Enjoy</div>;
+    return (
+      <div className={styles.container}>
+        <p className={styles.step}>Enjoy</p>
+      </div>
+    );
   }
 
-  return <div onClick={() => setStep(step + 1)}>{currentStep.text}</div>;
+  return (
+    <div className={styles.container} onClick={() => setStep(step + 1)}>
+      <p className={styles.step}>{currentStep.text}</p>
+    </div>
+  );
 };
 
 export default Brew;

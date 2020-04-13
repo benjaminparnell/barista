@@ -12,7 +12,7 @@ export const recipes: Recipe[] = [
       { text: "Press out coffee" },
       { text: "Add 100g water" },
       { text: "Taste and add more water until you reach desired strength" },
-      { text: "Cool to 60 degrees and enjoy!" },
+      { text: "Cool to 60 degrees" },
     ],
   },
   {
@@ -23,7 +23,6 @@ export const recipes: Recipe[] = [
       { text: "Pour to number 3 on chamber and stir", seconds: 30 },
       { text: "Fill to top", seconds: 45 },
       { text: "Add filter cap, invert and press" },
-      { text: "Enjoy!" },
     ],
   },
 ];
