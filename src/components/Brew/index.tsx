@@ -5,9 +5,10 @@ const styles = require("./index.css");
 
 interface Props {
   recipeId: string;
+  onStartOver?: () => void;
 }
 
-const Brew: React.SFC<Props> = ({ recipeId }) => {
+const Brew: React.SFC<Props> = ({ recipeId, onStartOver }) => {
   const [started, setStarted] = React.useState(false);
   const [step, setStep] = React.useState(0);
   const goToNextStep = () => setStep(step + 1);
@@ -36,6 +37,7 @@ const Brew: React.SFC<Props> = ({ recipeId }) => {
     return (
       <div className={styles.container}>
         <p className={styles.step}>Enjoy</p>
+        <button onClick={() => onStartOver && onStartOver()}>Start Over</button>
       </div>
     );
   }

@@ -28,4 +28,17 @@ describe("Brew", () => {
     });
     expect(() => getByText("Enjoy")).not.toThrow();
   });
+
+  it("should render a start over button when the recipe is finished", () => {
+    const startOverSpy = jest.fn();
+    const { getByText } = render(
+      <Brew recipeId="1" onStartOver={startOverSpy} />
+    );
+    fireEvent.click(getByText("Start"));
+    recipes[0].steps.forEach((step) => {
+      fireEvent.click(getByText(step.text));
+    });
+    fireEvent.click(getByText("Start Over"));
+    expect(startOverSpy).toHaveBeenCalled();
+  });
 });

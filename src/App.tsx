@@ -29,7 +29,12 @@ const App = () => {
         />
       )}
 
-      {step === Step.Brew && <Brew recipeId={recipeId} />}
+      {step === Step.Brew && (
+        <Brew
+          recipeId={recipeId}
+          onStartOver={() => setStep(Step.SelectBrewType)}
+        />
+      )}
     </div>
   );
 };
