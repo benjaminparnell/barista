@@ -1,3 +1,7 @@
 {
-  "extends": "@benparnell/tsconfig"
+  "extends": "@benparnell/tsconfig",
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "jsx": "react"
+  }
 }

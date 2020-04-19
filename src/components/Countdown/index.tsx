@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import useInterval from "../../useInterval";
 
 interface Props {
@@ -14,7 +14,7 @@ const once = (fn: (() => any) | null) => (...args: []) => {
 };
 
 const Countdown: React.SFC<Props> = ({ seconds, done }) => {
-  const [countdown, setCountdown] = React.useState(seconds);
+  const [countdown, setCountdown] = useState(seconds);
   const doneRef = React.useRef(done ? once(done) : null);
 
   useInterval(() => {

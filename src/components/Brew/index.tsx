@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import RecipeService from "../../RecipeService";
 import Countdown from "../Countdown";
 const styles = require("./index.css");
@@ -9,8 +9,8 @@ interface Props {
 }
 
 const Brew: React.SFC<Props> = ({ recipeId, onStartOver }) => {
-  const [started, setStarted] = React.useState(false);
-  const [step, setStep] = React.useState(0);
+  const [started, setStarted] = useState(false);
+  const [step, setStep] = useState(0);
   const goToNextStep = () => setStep(step + 1);
   const recipeService = new RecipeService();
   const recipe = recipeService.getById(recipeId);

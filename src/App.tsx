@@ -1,13 +1,13 @@
-import * as React from "react";
+import React, { useState } from "react";
 import TypeSelector from "./components/TypeSelector";
 import RecipeSelector from "./components/RecipeSelector";
 import Brew from "./components/Brew";
 import { Step, BrewType } from "./types";
 
 const App = () => {
-  const [step, setStep] = React.useState<Step>(Step.SelectBrewType);
-  const [brewType, setBrewType] = React.useState<BrewType>();
-  const [recipeId, setRecipeId] = React.useState("");
+  const [step, setStep] = useState<Step>(Step.SelectBrewType);
+  const [brewType, setBrewType] = useState<BrewType>();
+  const [recipeId, setRecipeId] = useState("");
   return (
     <div>
       {step === Step.SelectBrewType && (

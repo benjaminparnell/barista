@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { BrewType } from "../../types";
 import RecipeService from "../../RecipeService";
 const styles = require("./index.css");
