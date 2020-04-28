@@ -44,6 +44,7 @@ const App = () => {
         <Brew
           recipeId={recipeId}
           onStartOver={() => setStep(Step.SelectBrewType)}
+          cupAmount={cupAmount}
         />
       )}
     </div>
