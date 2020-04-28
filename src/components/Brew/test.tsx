@@ -30,7 +30,7 @@ describe("Brew", () => {
   it("should render the first step of the recipe when start is clicked", () => {
     const { getByText } = render(<Brew recipeId="1" cupAmount={1} />);
     fireEvent.click(getByText("Start"));
-    expect(() => getByText("Pour 100g water")).not.toThrow();
+    expect(() => getByText("Grind 15g of coffee")).not.toThrow();
   });
 
   it("should render a message when the recipe is finished", () => {
@@ -65,6 +65,6 @@ describe("Brew", () => {
       <Brew recipeId="1" onStartOver={jest.fn()} cupAmount={cupAmount} />
     );
     fireEvent.click(getByText("Start"));
-    expect(() => getByText("Pour 200g water")).not.toThrow();
+    expect(() => getByText("Grind 30g of coffee")).not.toThrow();
   });
 });

@@ -7,6 +7,12 @@ export const recipes: Recipe[] = [
     name: "World Champs 2019",
     steps: [
       {
+        text: (cupAmount) => `Grind ${cupAmount * 15}g of coffee`,
+      },
+      {
+        text: "Add coffee in to chamber",
+      },
+      {
         text: (cupAmount) => `Pour ${cupAmount * 100}g water`,
         seconds: 10,
       },
