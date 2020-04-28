@@ -5,10 +5,11 @@ const styles = require("./index.css");
 
 interface Props {
   recipeId: string;
+  cupAmount: number;
   onStartOver?: () => void;
 }
 
-const Brew: React.SFC<Props> = ({ recipeId, onStartOver }) => {
+const Brew: React.SFC<Props> = ({ recipeId, onStartOver, cupAmount }) => {
   const [started, setStarted] = useState(false);
   const [step, setStep] = useState(0);
   const goToNextStep = () => setStep(step + 1);
@@ -45,7 +46,11 @@ const Brew: React.SFC<Props> = ({ recipeId, onStartOver }) => {
   return (
     <div className={styles.container} onClick={goToNextStep}>
       <div className={styles.step}>
-        <p>{currentStep.text}</p>
+        <p>
+          {typeof currentStep.text === "function"
+            ? currentStep.text(cupAmount)
+            : currentStep.text}
+        </p>
         {currentStep.seconds && (
           <Countdown
             key={step}

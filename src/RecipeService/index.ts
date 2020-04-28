@@ -6,7 +6,10 @@ export const recipes: Recipe[] = [
     brewType: "Aeropress",
     name: "World Champs 2019",
     steps: [
-      { text: "Pour 100g water", seconds: 10 },
+      {
+        text: (cupAmount) => `Pour ${cupAmount * 100}g water`,
+        seconds: 10,
+      },
       { text: "Stir firmly 20 times", seconds: 10 },
       { text: "Put on filter cap and press out excess air", seconds: 20 },
       { text: "Press out coffee" },
