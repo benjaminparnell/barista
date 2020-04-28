@@ -2,12 +2,12 @@
   "name": "barista",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "dev": "parcel src/index.html",
     "build": "parcel build src/index.html",
     "test": "jest --coverage",
     "test:watch": "jest --watchAll",
+    "test:open-coverage": "open-cli coverage/lcov-report/index.html",
     "heroku-postbuild": "npm run build"
   },
   "keywords": [],
@@ -33,6 +33,7 @@
     "husky": "^4.2.5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^25.3.0",
+    "open-cli": "^6.0.1",
     "parcel": "^2.0.0-alpha.3.2",
     "postcss-modules": "^1.5.0",
     "ts-jest": "^25.3.1",
