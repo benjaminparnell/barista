@@ -29,6 +29,12 @@ export const recipes: Recipe[] = [
     brewType: "Aeropress",
     name: "Classic",
     steps: [
+      {
+        text: (cupAmount) => `Grind ${cupAmount * 15}g of coffee`,
+      },
+      {
+        text: "Add coffee in to chamber",
+      },
       { text: "Pour to number 3 on chamber and stir", seconds: 30 },
       { text: "Fill to top", seconds: 45 },
       { text: "Add filter cap, invert and press" },
