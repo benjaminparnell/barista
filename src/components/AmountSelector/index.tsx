@@ -1,14 +1,21 @@
 import React from "react";
 
+const styles = require("./index.css");
+
 interface Props {
   onSelected: (amount: number) => void;
 }
 
 const AmountSelector: React.SFC<Props> = ({ onSelected }) => (
-  <div>
+  <div className={styles.container}>
     {[1, 2, 3].map((amount) => (
-      <div key={amount} onClick={() => onSelected(amount)} data-testid="amount">
-        {amount} {amount > 1 ? "cups" : "cup"}
+      <div
+        className={styles.amount}
+        key={amount}
+        onClick={() => onSelected(amount)}
+        data-testid="amount"
+      >
+        <h2>{amount} {amount > 1 ? "cups" : "cup"}</h2>
       </div>
     ))}
   </div>
