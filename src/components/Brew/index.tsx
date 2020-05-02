@@ -38,7 +38,12 @@ const Brew: React.SFC<Props> = ({ recipeId, onStartOver, cupAmount }) => {
     return (
       <div className={styles.container}>
         <p className={styles.step}>Enjoy</p>
-        <button onClick={() => onStartOver && onStartOver()}>Start Over</button>
+        <button
+          className={styles.button}
+          onClick={() => onStartOver && onStartOver()}
+        >
+          Start Over
+        </button>
       </div>
     );
   }

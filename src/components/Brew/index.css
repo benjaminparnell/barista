@@ -4,8 +4,18 @@
   align-items: center;
   height: 100vh;
   text-align: center;
+  flex-direction: column;
 }
 
 .step {
   font-size: 46pt;
+}
+
+.button {
+  border: 1px solid black;
+  border-radius: 5px;
+  font-weight: 800;
+  font-size: 20pt;
+  padding: 20px 50px;
+  background: transparent;
 }
