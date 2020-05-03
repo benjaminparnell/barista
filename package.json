@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@benparnell/tsconfig": "^0.1.1",
-    "@testing-library/react": "^10.0.2",
+    "@testing-library/react": "^10.0.4",
     "@types/jest": "^25.2.1",
     "@types/node": "^13.11.1",
     "@types/react": "^16.9.34",
@@ -32,10 +32,10 @@
     "autoprefixer": "^9.7.6",
     "husky": "^4.2.5",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^25.3.0",
+    "jest": "^25.5.4",
     "open-cli": "^6.0.1",
     "parcel": "^2.0.0-alpha.3.2",
-    "postcss-modules": "^1.5.0",
+    "postcss-modules": "^2.0.0",
     "ts-jest": "^25.3.1",
     "tslib": "^1.11.1",
     "typescript": "^3.8.3"
