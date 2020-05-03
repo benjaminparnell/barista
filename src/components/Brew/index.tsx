@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import RecipeService from "../../RecipeService";
+import useRecipeService from "../../RecipeService/useRecipeService";
 import Countdown from "../Countdown";
 import Step from "./Step";
 const styles = require("./index.css");
@@ -14,7 +14,7 @@ const Brew: React.SFC<Props> = ({ recipeId, onStartOver, cupAmount }) => {
   const [started, setStarted] = useState(false);
   const [step, setStep] = useState(0);
   const goToNextStep = () => setStep(step + 1);
-  const recipeService = new RecipeService();
+  const recipeService = useRecipeService();
   const recipe = recipeService.getById(recipeId);
 
   if (!recipe) {
