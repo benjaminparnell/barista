@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import RecipeService from "../../RecipeService";
 import Countdown from "../Countdown";
+import Step from "./Step";
 const styles = require("./index.css");
 
 interface Props {
@@ -17,45 +18,38 @@ const Brew: React.SFC<Props> = ({ recipeId, onStartOver, cupAmount }) => {
   const recipe = recipeService.getById(recipeId);
 
   if (!recipe) {
-    return (
-      <div className={styles.container}>
-        <p className={styles.step}>Recipe not found</p>
-      </div>
-    );
+    return <Step text="Recipe not found" />;
   }
 
   if (!started) {
-    return (
-      <div className={styles.container} onClick={() => setStarted(true)}>
-        <p className={styles.step}>Start</p>
-      </div>
-    );
+    return <Step text="Start" onClick={() => setStarted(true)} />;
   }
 
   const currentStep = recipe.steps[step];
 
   if (!currentStep && step === recipe.steps.length) {
     return (
-      <div className={styles.container}>
-        <p className={styles.step}>Enjoy</p>
+      <Step text="Enjoy">
         <button
           className={styles.button}
           onClick={() => onStartOver && onStartOver()}
         >
           Start Over
         </button>
-      </div>
+      </Step>
     );
   }
 
   return (
-    <div className={styles.container} onClick={goToNextStep}>
+    <Step
+      text={
+        typeof currentStep.text === "function"
+          ? currentStep.text(cupAmount)
+          : currentStep.text
+      }
+      onClick={goToNextStep}
+    >
       <div className={styles.step}>
-        <p>
-          {typeof currentStep.text === "function"
-            ? currentStep.text(cupAmount)
-            : currentStep.text}
-        </p>
         {currentStep.seconds && (
           <Countdown
             key={step}
@@ -64,7 +58,7 @@ const Brew: React.SFC<Props> = ({ recipeId, onStartOver, cupAmount }) => {
           />
         )}
       </div>
-    </div>
+    </Step>
   );
 };
 
