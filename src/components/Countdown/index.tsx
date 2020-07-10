@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import useInterval from "../../useInterval";
+import useInterval from "../../use-interval";
 
 interface Props {
   seconds: number;
@@ -9,9 +9,9 @@ interface Props {
 
 const once = (fn: () => any): (() => void) => {
   let notCalled = true;
-  return (...args: []) => {
+  return (...arguments_: []) => {
     if (notCalled) {
-      fn.apply(fn, args);
+      fn.apply(fn, arguments_);
       notCalled = false;
     }
   };
@@ -19,12 +19,12 @@ const once = (fn: () => any): (() => void) => {
 
 const Countdown: React.FC<Props> = ({ seconds, done }) => {
   const [countdown, setCountdown] = useState(seconds);
-  const doneRef = React.useRef(done ? once(done) : null);
+  const doneReference = React.useRef(done ? once(done) : undefined);
 
   useInterval(() => {
     if (countdown - 1 > 0) {
       setCountdown(countdown - 1);
-    } else if (doneRef.current) doneRef.current();
+    } else if (doneReference.current) doneReference.current();
   }, 1000);
 
   return <p data-testid="countdown">{countdown}</p>;

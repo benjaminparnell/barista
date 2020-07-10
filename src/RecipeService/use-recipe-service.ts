@@ -2,8 +2,8 @@ import { useRef } from "react";
 import RecipeService from ".";
 
 const useRecipeService = (): RecipeService => {
-  const ref = useRef(new RecipeService());
-  return ref.current;
+  const reference = useRef(new RecipeService());
+  return reference.current;
 };
 
 export default useRecipeService;

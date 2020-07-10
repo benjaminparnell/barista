@@ -30,7 +30,7 @@ Step.propTypes = {
 
 Step.defaultProps = {
   onClick: () => {},
-  children: null,
+  children: undefined,
 };
 
 export default Step;

@@ -1,8 +1,9 @@
 module.exports = {
-  plugins: ["@typescript-eslint", "jest"],
+  plugins: ["@typescript-eslint", "jest", "unicorn"],
   extends: [
     "airbnb-typescript",
     "plugin:jest/recommended",
+    "plugin:unicorn/recommended",
     "prettier",
     "prettier/react",
     "prettier/@typescript-eslint",

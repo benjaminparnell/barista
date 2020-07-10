@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { differenceInSeconds } from "date-fns";
 import PropTypes from "prop-types";
-import useRecipeService from "../../RecipeService/useRecipeService";
+import useRecipeService from "../../RecipeService/use-recipe-service";
 import Countdown from "../Countdown";
 import Step from "./Step";
 
