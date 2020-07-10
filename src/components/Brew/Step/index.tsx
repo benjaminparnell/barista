@@ -7,13 +7,11 @@ interface Props {
   onClick?: () => void;
 }
 
-const Step: React.SFC<Props> = ({ text, onClick, children }) => {
-  return (
-    <div className={styles.container} onClick={onClick}>
-      <p className={styles.step}>{text}</p>
-      {children}
-    </div>
-  );
-};
+const Step: React.SFC<Props> = ({ text, onClick, children }) => (
+  <div className={styles.container} onClick={onClick}>
+    <p className={styles.step}>{text}</p>
+    {children}
+  </div>
+);
 
 export default Step;

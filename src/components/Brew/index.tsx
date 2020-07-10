@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { differenceInSeconds } from "date-fns";
 import useRecipeService from "../../RecipeService/useRecipeService";
 import Countdown from "../Countdown";
 import Step from "./Step";
@@ -7,10 +8,18 @@ const styles = require("./index.css");
 interface Props {
   recipeId: string;
   cupAmount: number;
+  startTime: Date | undefined;
+  onStart: () => void;
   onStartOver?: () => void;
 }
 
-const Brew: React.SFC<Props> = ({ recipeId, onStartOver, cupAmount }) => {
+const Brew: React.SFC<Props> = ({
+  recipeId,
+  onStartOver,
+  cupAmount,
+  startTime,
+  onStart,
+}) => {
   const [started, setStarted] = useState(false);
   const [step, setStep] = useState(0);
   const goToNextStep = () => setStep(step + 1);
@@ -22,7 +31,15 @@ const Brew: React.SFC<Props> = ({ recipeId, onStartOver, cupAmount }) => {
   }
 
   if (!started) {
-    return <Step text="Start" onClick={() => setStarted(true)} />;
+    return (
+      <Step
+        text="Start"
+        onClick={() => {
+          setStarted(true);
+          onStart();
+        }}
+      />
+    );
   }
 
   const currentStep = recipe.steps[step];
@@ -30,6 +47,9 @@ const Brew: React.SFC<Props> = ({ recipeId, onStartOver, cupAmount }) => {
   if (!currentStep && step === recipe.steps.length) {
     return (
       <Step text="Enjoy">
+        {startTime && (
+          <p>Time taken: {differenceInSeconds(new Date(), startTime)}</p>
+        )}
         <button
           className={styles.button}
           onClick={() => onStartOver && onStartOver()}

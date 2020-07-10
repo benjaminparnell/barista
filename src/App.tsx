@@ -10,6 +10,8 @@ const App = () => {
   const [brewType, setBrewType] = useState<BrewType>();
   const [recipeId, setRecipeId] = useState("");
   const [cupAmount, setCupAmount] = useState(0);
+  const [startTime, setStartTime] = useState<Date>();
+
   return (
     <div>
       {step === Step.SelectBrewType && (
@@ -43,6 +45,8 @@ const App = () => {
       {step === Step.Brew && (
         <Brew
           recipeId={recipeId}
+          onStart={() => setStartTime(new Date())}
+          startTime={startTime}
           onStartOver={() => setStep(Step.SelectBrewType)}
           cupAmount={cupAmount}
         />
