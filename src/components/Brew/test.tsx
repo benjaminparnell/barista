@@ -1,5 +1,9 @@
 import * as React from "react";
-import { render, fireEvent, getByText } from "@testing-library/react";
+import {
+  render,
+  fireEvent,
+  getByText as getByTextFromContainer,
+} from "@testing-library/react";
 import { recipes } from "../../RecipeService";
 import { RecipeStep } from "../../types";
 import Brew from ".";
@@ -15,11 +19,11 @@ describe("Brew", () => {
   const getByStepText = (
     container: HTMLElement,
     step: RecipeStep,
-    cupAmount: number
-  ) =>
-    getByText(
+    stepCupAmount: number
+  ): HTMLElement =>
+    getByTextFromContainer(
       container,
-      typeof step.text === "function" ? step.text(cupAmount) : step.text
+      typeof step.text === "function" ? step.text(stepCupAmount) : step.text
     );
 
   it("should render a message if the recipe is not found", () => {

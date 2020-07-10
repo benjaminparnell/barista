@@ -48,13 +48,11 @@ interface IRecipeService {
 }
 
 class RecipeService implements IRecipeService {
-  getByBrewType(brewType: BrewType): Recipe[] {
-    return recipes.filter((recipe) => recipe.brewType === brewType);
-  }
+  getByBrewType = (brewType: BrewType): Recipe[] =>
+    recipes.filter((recipe) => recipe.brewType === brewType);
 
-  getById(id: string): Recipe | undefined {
-    return recipes.find((recipe) => recipe.id === id);
-  }
+  getById = (id: string): Recipe | undefined =>
+    recipes.find((recipe) => recipe.id === id);
 }
 
 export default RecipeService;

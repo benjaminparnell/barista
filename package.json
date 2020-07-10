@@ -5,13 +5,15 @@
   "scripts": {
     "dev": "parcel src/index.html",
     "build": "parcel build src/index.html",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src/",
+    "pretest": "npm run lint",
     "test": "jest --coverage",
     "test:watch": "jest --watchAll",
     "test:open-coverage": "open-cli coverage/lcov-report/index.html",
     "heroku-postbuild": "npm run build"
   },
   "keywords": [],
-  "author": "",
+  "author": "Benjamin Parnell",
   "license": "ISC",
   "husky": {
     "hooks": {
@@ -20,6 +22,7 @@
   },
   "dependencies": {
     "date-fns": "^2.14.0",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
@@ -30,7 +33,16 @@
     "@types/node": "^13.13.5",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
+    "@typescript-eslint/eslint-plugin": "^3.6.0",
     "autoprefixer": "^9.7.6",
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb-typescript": "^8.0.2",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^23.18.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^2.5.1",
     "husky": "^4.2.5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.0.1",

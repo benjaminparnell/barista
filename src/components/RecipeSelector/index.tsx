@@ -1,6 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { BrewType } from "../../types";
 import RecipeService from "../../RecipeService";
+
 const styles = require("./index.css");
 
 interface Props {
@@ -18,13 +20,21 @@ const RecipeSelector: React.SFC<Props> = ({ brewType, onSelected }) => {
           key={recipe.id}
           className={styles.recipe}
           onClick={() => onSelected(recipe.id)}
+          onKeyDown={() => onSelected(recipe.id)}
           data-testid={`recipe-${recipe.id}`}
+          role="button"
+          tabIndex={-1}
         >
           <h2>{recipe.name}</h2>
         </div>
       ))}
     </div>
   );
+};
+
+RecipeSelector.propTypes = {
+  brewType: PropTypes.oneOf(["Aeropress", "V60"] as const).isRequired,
+  onSelected: PropTypes.func.isRequired,
 };
 
 export default RecipeSelector;

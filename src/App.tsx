@@ -5,7 +5,7 @@ import Brew from "./components/Brew";
 import { Step, BrewType } from "./types";
 import AmountSelector from "./components/AmountSelector";
 
-const App = () => {
+const App: React.FC = () => {
   const [step, setStep] = useState<Step>(Step.SelectBrewType);
   const [brewType, setBrewType] = useState<BrewType>();
   const [recipeId, setRecipeId] = useState("");

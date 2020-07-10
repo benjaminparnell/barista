@@ -7,7 +7,7 @@ describe("Countdown", () => {
     jest.useFakeTimers();
   });
 
-  const advanceBy = (ms: number) =>
+  const advanceBy = (ms: number): void =>
     act(() => {
       jest.advanceTimersByTime(ms);
     });
